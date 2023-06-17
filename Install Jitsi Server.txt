@@ -1,0 +1,16 @@
+First install the Jitsi repository key onto your system:
+curl https://download.jitsi.org/jitsi-key.gpg.key | sudo sh -c 'gpg --dearmor > /usr/share/keyrings/jitsi-keyring.gpg'
+
+Create a sources.list.d file with the repository:
+echo 'deb [signed-by=/usr/share/keyrings/jitsi-keyring.gpg] https://download.jitsi.org stable/' | sudo tee /etc/apt/sources.list.d/jitsi-stable.list > /dev/null
+
+Update your package list:
+sudo apt-get -y update
+
+Install the full suite:
+sudo apt-get -y install jitsi-meet
+
+or only the packages you need like for example:
+sudo apt-get -y install jitsi-videobridge
+sudo apt-get -y install jicofo
+sudo apt-get -y install jigasi
